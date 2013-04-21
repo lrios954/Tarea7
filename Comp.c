@@ -76,7 +76,7 @@ int sol(double cond1, double cond2){
 	char num[2];
 	sprintf(num, "%d", ind);
 	FILE *export;
-	export = fopen(strcat(num,".dat"), "w");
+	export = fopen("oscilacion_estelar.dat", "w");
 	double h;
 	int n_points;
 	h = 1.0E3;
@@ -95,7 +95,7 @@ int sol(double cond1, double cond2){
        if (!x || !y || !t){
 	printf("Error en memoria");
         exit(1);
-       }
+	}
 
 	
 	x[0] = cond1;
@@ -113,15 +113,5 @@ int sol(double cond1, double cond2){
 	}
 
 	return 0;
-
-int print_file (gsl_vector* input)
-{
-FILE *export;
-export = fopen("parametros_movimiento.dat", "w");
-
-fprintf(export, "%f %f %f" ,gsl_vector_get (input, 0), gsl_vector_get (input, 1) ,gsl_vector_get (input, 2));
-
-return 0;
-}
 
 }

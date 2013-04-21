@@ -1,6 +1,9 @@
 import pylab
 import numpy
 
+#Creo que este programa ya no es necesario, porque fourier.py esta graficando las cosas!!!
+
+
 #for i in range(10):
 
 	#data = numpy.loadtxt(open(str(i)+'.dat', 'r'))

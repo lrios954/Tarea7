@@ -1,15 +1,14 @@
-a.out: Tarea7.o sol.o 
-	@cc Tarea7.o sol.o
+a.out: Tarea7.o Comp.o 
+	@cc Tarea7.o Comp.o
 	@./a.out
-	@python Graficador.py
 	@python fourier.py
 
 
 Tarea7.o: Tarea7.c
 	@cc -c Tarea7.c
 
-sol.o: sol.c
-	@cc -c sol.c
+Comp.o: Comp.c
+	@cc -c Comp.c
 
 all: a.out
 

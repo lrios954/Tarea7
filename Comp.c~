@@ -2,22 +2,22 @@
 #include <stdlib.h>
 
 
-//X es V, Y es r
+//X es Velocidad, Y es radio
 
-double M= 1.0E34;
-double m= 1.0E29;
+double M= 1.0E5/1.0;
+double m= 1.0;
 double cte=((1.7E12)*(1.7E12)*(1.7E12)*(1.7E12)*(1.7E12))*5.6E5;
-double G= 6.6725E-8;
-int tMax=1.5E6;
+double G= 6.67259E-8;
+int tMax=1.5E3;
 double pi=3.1416;
 
 //Funciones
-double v_prime( double r, double v) {
+double v_prime( double v, double r) {
   
 return -G*M/r*r + 4*pi*cte/(m*r*r*r);
 
   }
-double r_prime( double r, double v) {
+double r_prime( double v, double r) {
   
 return v;
 
@@ -51,7 +51,7 @@ int rungekutta(int i, double *x,double *y,double *t, double h)
 	double ky3 = r_prime(x2, y2);
 	
  		      
-	// third step
+	// third step  
  	double t3 = t[i-1] + h;
   	double x3 = x[i-1] + h * kx3;
   	double y3 = y[i-1] + h * ky3;
@@ -60,7 +60,7 @@ int rungekutta(int i, double *x,double *y,double *t, double h)
   	double ky4 = r_prime(x3, y3);
   	
   	
-  	// fourth step
+  	// fourth step 
  	double average_kx = (1.0/6.0)*(kx1 + 2.0*kx2 + 2.0*kx3 + kx4);
  	double average_ky = (1.0/6.0)*(ky1 + 2.0*ky2 + 2.0*ky3 + ky4);
 
@@ -68,18 +68,20 @@ int rungekutta(int i, double *x,double *y,double *t, double h)
   	t[i] = t[i-1] + h;
    	x[i] = x[i-1] + h * average_kx;
    	y[i] = y[i-1] + h * average_ky;
+
+//printf("%f" ,kx2);
    	
 }
 
 int sol(double cond1, double cond2){
 
-	char num[2];
-	sprintf(num, "%d", ind);
+	//char num[2];
+	//sprintf(num, "%d", ind);
 	FILE *export;
-	export = fopen(strcat(num,".dat"), "w");
+	export = fopen("oscilacion_estelar.dat", "w");
 	double h;
 	int n_points;
-	h = 1.0E3;
+	h = 1.0;
 	n_points = (int) ((tMax+h)/h);
 	
 	
@@ -95,7 +97,7 @@ int sol(double cond1, double cond2){
        if (!x || !y || !t){
 	printf("Error en memoria");
         exit(1);
-       }
+	}
 
 	
 	x[0] = cond1;
@@ -113,15 +115,5 @@ int sol(double cond1, double cond2){
 	}
 
 	return 0;
-
-int print_file (gsl_vector* input)
-{
-FILE *export;
-export = fopen("parametros_movimiento.dat", "w");
-
-fprintf(export, "%f %f %f" ,gsl_vector_get (input, 0), gsl_vector_get (input, 1) ,gsl_vector_get (input, 2));
-
-return 0;
-}
 
 }

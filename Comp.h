@@ -1,1 +1,1 @@
-int sol(int i,double cond1, double cond2,double cond3);
+int sol(double cond1, double cond2);

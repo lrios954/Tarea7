@@ -114,7 +114,7 @@ for i in range(len(tabla1)):
 	if (tabla2[i] == pot_max):
 		periodo_seg = tabla1[i]
 		#Convierte el periodo de oscilacion de la estrella de miles de segundos a dias
-		periodo = periodo_seg/86.4 
+		periodo = periodo_seg/86400 
 
 
 #Escribe el archivo con el periodo y el radio de equilibrio

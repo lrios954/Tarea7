@@ -9,7 +9,7 @@ int main() {
 	//for (i = 0; i < 10; i ++)
 	//{
 		//Condicion inicial de la velocidad		
-		double cond1 = 1.0;
+		double cond1 = 0.0;
 		//Condicion inicial del radio
                 double cond2 = 1.0;
                

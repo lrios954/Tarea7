@@ -4,11 +4,11 @@
 
 //X es Velocidad, Y es radio
 
-double M= 1.0E5/1.0;
-double m= 1.0;
+double M= 1.0E34;
+double m= 1.0E29;
 double cte=((1.7E12)*(1.7E12)*(1.7E12)*(1.7E12)*(1.7E12))*5.6E5;
 double G= 6.67259E-8;
-int tMax=1.5E3;
+int tMax=1.5E3; 
 double pi=3.1416;
 
 //Funciones
@@ -68,7 +68,7 @@ int rungekutta(int i, double *x,double *y,double *t, double *p, double h)
   	t[i] = t[i-1] + h;
    	x[i] = x[i-1] + h * average_kx;
    	y[i] = y[i-1] + h * average_ky;
-	p[i] = 5.6E5/(y[i-1]*y[i-1]*y[i-1]*y[i-1]*y[i-1]);
+	p[i] = 5.6E5/((y[i-1])*(y[i-1])*(y[i-1])*(y[i-1])*(y[i-1]));
 
 //printf("%f" ,kx2);
    	

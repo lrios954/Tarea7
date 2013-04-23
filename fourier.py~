@@ -20,19 +20,21 @@ PromedioManchas=[]
 AnioManchas=[]
 ManchasMensuales=[]
 Velocidad=[]
+Presion=[]
 
 for i in range(len(Referencia)):
 	
 	Tiempo.append(data[i,0])
 	Radio.append(data[i,2])
 	Velocidad.append(data[i,1])
+	Presion.append(data[i,3])
 
 pylab.plot(Tiempo, Radio, '.')
 pylab.xlabel('Tiempo(segundos)')
 pylab.ylabel('Radio estelar')
 pylab.title('Radio vs tiempo')
-#pylab.savefig("Radio")
-#pylab.show()
+pylab.savefig("Radio")
+pylab.show()
 
 fft_x = fft(Radio) 			#/len(Tiempo) # FFT Normalized
 freq = fftfreq(len(Tiempo), 1000.0) 	# Recuperamos las frecuencias. El numero es el diferencial de tiempo dt
@@ -95,6 +97,14 @@ pylab.xlabel('Tiempo(segundos)')
 pylab.ylabel('Velocidad')
 pylab.title('Velocidad vs tiempo')
 pylab.savefig("Velocidad")
+pylab.show()
+
+#Grafica la presion contra el tiempo
+pylab.plot(Tiempo, Presion, '.')
+pylab.xlabel('Tiempo(segundos)')
+pylab.ylabel('Presion atmosferica (dinas/cm2)')
+pylab.title('Presion vs tiempo')
+pylab.savefig("Presion")
 pylab.show()
 
 #Calcula el radio de equilibrio

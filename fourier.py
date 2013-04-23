@@ -37,7 +37,7 @@ pylab.savefig("Radio")
 pylab.show()
 
 fft_x = fft(Radio) 			#/len(Tiempo) # FFT Normalized
-freq = fftfreq(len(Tiempo), 1000.0) 	# Recuperamos las frecuencias. El numero es el diferencial de tiempo dt
+freq = fftfreq(len(Tiempo), 1.0) 	# Recuperamos las frecuencias. El numero es el diferencial de tiempo dt
 fft_x2 = fft(Radio)			#/len(Tiempo) #Para el punto 5to
 pylab.plot(freq,np.abs(fft_x))
 

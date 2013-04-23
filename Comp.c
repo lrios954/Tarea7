@@ -70,7 +70,7 @@ int rungekutta(int i, double *x,double *y,double *t, double *p, double h)
   t[i] = t[i-1] + h;
   x[i] = x[i-1] + h * average_kx;
   y[i] = y[i-1] + h * average_ky;
-  p[i] = 5.6E5/((y[i-1])*(y[i-1])*(y[i-1])*(y[i-1])*(y[i-1]));
+  p[i] = 7.95E66/((y[i-1])*(y[i-1])*(y[i-1])*(y[i-1])*(y[i-1]));
   
 //printf("%f" ,kx2);
 	return 0;

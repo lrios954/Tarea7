@@ -1,0 +1,2 @@
+El periodo de oscilacion de la estrella (en dias) es de 2.285880e+02 
+ El radio de equilibrio de la estrella (en cm) es de 1.989807e+12 

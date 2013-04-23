@@ -11,7 +11,7 @@ int main() {
 		//Condicion inicial de la velocidad		
 		double cond1 = 0.0;
 		//Condicion inicial del radio
-                double cond2 = 1.0E12;
+                double cond2 = 1E12;
                
                 sol(cond1,cond2);
 	//}
